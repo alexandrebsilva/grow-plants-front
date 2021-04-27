@@ -1,6 +1,7 @@
-const axios = require("axios");
+import { useSelector } from "react-redux";
+import axios from "axios";
 
-let options = {
+export let options = {
   baseURL: "https://grow-plants-api.herokuapp.com/",
   timeout: 10000,
 };
@@ -9,6 +10,4 @@ if (localStorage.getItem("token")) {
     Authorization: localStorage.getItem("token"),
   };
 }
-const instance = axios.create(options);
-
-export default instance;
+export const api = axios.create(options);

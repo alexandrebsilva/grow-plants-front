@@ -1,3 +1,5 @@
+import getUser from "../actions/user";
+
 const initialState = {
   token: localStorage.getItem("token") || "",
   loading: false,
@@ -9,8 +11,9 @@ function auth(state = initialState, action) {
     case "LOGIN_REQUEST":
       return { ...state, loading: true };
     case "LOGIN_SUCCESS":
-      localStorage.setItem("token", `Bearer ${action.token}`);
-      return { ...state, loading: false, token: action.token };
+      localStorage.setItem("token", `Bearer ${action.payload}`);
+      getUser();
+      return { ...state, loading: false, token: action.payload };
     case "LOGIN_FAIL":
       return { ...state, loading: false, error: action.payload };
     default:

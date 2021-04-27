@@ -1,8 +1,8 @@
 import { put, takeEvery } from "redux-saga/effects";
-import api from "../service/api";
+import { api } from "../service/api";
 
 export async function getUser() {
-  const response = await api.get("user");
+  const response = await api.get("/user");
   return response.data;
 }
 

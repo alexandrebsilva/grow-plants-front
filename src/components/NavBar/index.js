@@ -9,6 +9,7 @@ import {
   NavItem,
   NavLink,
 } from "reactstrap";
+import logout from "../../helpers/logout";
 
 const NavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,6 +31,11 @@ const NavBar = (props) => {
           </NavItem>
           <NavItem>
             <NavLink href="/login">Login</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="/login" onClick={logout}>
+              Logout
+            </NavLink>
           </NavItem>
         </Nav>
       </Collapse>

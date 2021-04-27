@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 import AuthRoute from "./components/AuthRoute";
 import NavBar from "./components/NavBar";
 import "./index.css";

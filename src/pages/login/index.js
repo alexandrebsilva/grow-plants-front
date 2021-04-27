@@ -11,17 +11,19 @@ import {
 } from "reactstrap";
 import PageTitle from "../../components/PageTitle";
 import login from "../../actions/auth";
+import getUser from "../../actions/user";
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
-  // const state = useSelector((state) => state);
+  const auth = useSelector((state) => state.auth);
 
   return (
     <Container>
       <PageTitle>Login</PageTitle>
+      {auth.token || null}
       <Form>
         <FormGroup>
           <Label for="exampleEmail">Email</Label>
@@ -48,7 +50,7 @@ const Login = (props) => {
         </FormGroup>
 
         <Button
-          // disabled={state.auth.loading}
+          disabled={auth.loading}
           onClick={() => {
             dispatch(login({ email, password }));
           }}
